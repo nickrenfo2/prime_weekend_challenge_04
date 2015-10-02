@@ -22,7 +22,7 @@ app.controller('IndexController', ['$scope', '$http', function($scope,$http){
         console.log($scope.itemText);
         if ($scope.itemText){
             $scope.addingItem=false;
-            $scope.myLists[0].list.push(itemText);//Instead of adding it to the list, push it to Mongo
+            $scope.myLists[0].list.push($scope.itemText);//Instead of adding it to the list, push it to Mongo
             $scope.itemText = '';
         }
     };
