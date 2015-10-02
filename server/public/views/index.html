@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/views/styles.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <script src="/assets/scripts/app.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron"><h1>Today's Shit List</h1></div>
+    <div ng-controller="IndexController">
+        <!--<div>{{itworks}}</div>-->
+        <!--<button ng-click="fetchLists()">Fetch Lists</button>-->
+        <button ng-click="saveList(myLists[0])">Save List</button>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 listContainer">
+                <form ng-submit="submitItem()">
+                    <div ng-repeat="list in myLists track by $index" class="panel panel-default">
+                        <div class="panel-heading">{{list.title}}</div>
+                        <ul class="list-group">
+                            <li ng-repeat="task in list.list" class="list-group-item"><i class="fa fa-bars"></i>{{task}}</li>
+                            <li class="list-group-item" ng-hide="addingItem" ng-click="addItem($event)"><i class="fa fa-plus"></i>Add an Item</li>
+                            <li class="list-group-item" ng-show="addingItem"><i class="fa fa-plus"></i><input ng-model="itemText" type="text" placeholder="Add an Item"></li>
+                        </ul>
+                        {{itemText}}
+                    </div>
+                    <!--<input type="submit">-->
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</body>
+</html>
