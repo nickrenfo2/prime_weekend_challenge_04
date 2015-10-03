@@ -31,11 +31,11 @@ app.post('/list', function (req,res,next) {
         res.send(list.toJSON());
     })
 });
-app.set("port", (process.env.PORT || 5000));
+//app.set("port", (process.env.PORT || 5000));
 
 
 
-var server = app.listen(app.get('port'), function () {
+var server = app.listen((process.env.PORT || 5000, function () {
     console.log('Listening on port:',server.address().port);
 });
 
